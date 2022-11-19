@@ -24,7 +24,8 @@ end)
 
 -- >> PredictUser
 addCommand("to", function() 
-PredictUser();
+PredictUser(); -- Or -> Index = CheckUs(tostring(string.split(msg," ")[2]));
+print(Index);
 print("Player Has Been Founded!");
 end)
 
