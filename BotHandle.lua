@@ -36,10 +36,6 @@ if string.match(message,"^"..Addprefix..tostring(y)) then
 	end)
 end
 
-function Rejoin()
-    game:GetService("TeleportService"):Teleport(game.PlaceId, b)	
-end
-
 function PredictUser(NameVariable)
     local Table = game.Players:GetChildren()
     for i,v in pairs (Table) do
