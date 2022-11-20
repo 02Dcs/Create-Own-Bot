@@ -4,12 +4,8 @@ Addprefix = '/'
 local StartApiBot = {}
 
 local function PredictUser(partialName)
-    partialName = partialName:lower()
-    for _,player in ipairs(game:GetService("Players"):GetPlayers()) do
-        if string.find(player.Name:lower(),partialName) then
-            return player
-        end
-    end
+
+	print("a")
 end
 
 if syn then 
