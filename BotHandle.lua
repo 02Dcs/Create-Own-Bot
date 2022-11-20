@@ -7,7 +7,7 @@ if syn then
 syn.queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/02Dcs/Create-Own-Bot/main/BotHandle.lua", true))()') 
 end
 
-local function getPlayerFromPartialName(partialName)
+local function PredictUser(partialName)
     partialName = partialName:lower()
     for _,player in ipairs(game:GetService("Players"):GetPlayers()) do
         if string.find(player.Name:lower(),partialName) then
