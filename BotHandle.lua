@@ -7,6 +7,16 @@ if syn then
 syn.queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/02Dcs/Create-Own-Bot/main/BotHandle.lua", true))()') 
 end
 
+
+function PredictUser(NameVariable)
+    local Table = game.Players:GetChildren()
+    for i,v in pairs (Table) do
+        if string.find(string.lower(v.Name), string.lower(NameVariable)) then
+            return v.Name
+	end
+    end
+end
+
 local msg
 local players, replicatedStorage = game:GetService("Players"), game:GetService("ReplicatedStorage");
 local defaultChatSystemChatEvents = replicatedStorage:FindFirstChild("DefaultChatSystemChatEvents");
@@ -24,16 +34,8 @@ if AddWhitelist.Whitelist == true then
 		end
 	end
 end
-			
-function PredictUser(NameVariable)
-    local Table = game.Players:GetChildren()
-    for i,v in pairs (Table) do
-        if string.find(string.lower(v.Name), string.lower(NameVariable)) then
-	print(v.Name)
-	end
-    end
-end
-		
+
+
 function Msg(b)
 	game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(tostring(b), "All")
 end
@@ -44,4 +46,3 @@ if string.match(message,"^"..Addprefix..tostring(y)) then
 		end
 	end)
 end
-
