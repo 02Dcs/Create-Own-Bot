@@ -27,7 +27,6 @@ addCommand("to", function() -- Command: test
 maxsplit = 2; -- Spilt The Msg
 local Args = PredictUser(tostring(string.split(msg," ")[maxsplit])); -- Handle
 print(Args) -- Prints player name!
-end
 end)
 
 
