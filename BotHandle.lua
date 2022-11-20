@@ -7,16 +7,6 @@ if syn then
 syn.queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/02Dcs/Create-Own-Bot/main/BotHandle.lua", true))()') 
 end
 
-
-function PredictUser(NameVariable)
-    local Table = game.Players:GetChildren()
-    for i,v in pairs (Table) do
-        if string.find(string.lower(v.Name), string.lower(NameVariable)) then
-            return v.Name
-	end
-    end
-end
-
 local msg
 local players, replicatedStorage = game:GetService("Players"), game:GetService("ReplicatedStorage");
 local defaultChatSystemChatEvents = replicatedStorage:FindFirstChild("DefaultChatSystemChatEvents");
@@ -43,6 +33,14 @@ end
 if string.match(message,"^"..Addprefix..tostring(y)) then
 			pcall(callback) ;v = y
 			msg = message
+				function PredictUser(NameVariable)
+    local Table = game.Players:GetChildren()
+    for i,v in pairs (Table) do
+        if string.find(string.lower(v.Name), string.lower(NameVariable)) then
+            return v.Name
+	end
+    end
+end
 		end
 	end)
 end
