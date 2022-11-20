@@ -23,10 +23,12 @@ print("a")
 end)
 
 -- >> PredictUser
-addCommand("to", function() 
-PredictUser(); -- Or -> Index = CheckUs(tostring(string.split(msg," ")[2]));
-print(Index);
-print("Player Has Been Founded!");
+addCommand("to", function() -- Command: test
+maxsplit = 2; -- Spilt The Msg
+if PredictUser then -- Get Players Name!
+-- Code Here
+end
 end)
+
 
 -- More Coming Soon!
