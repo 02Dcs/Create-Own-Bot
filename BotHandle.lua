@@ -1,4 +1,8 @@
+_G.Version = 1.1
+
 repeat task.wait(.25) until game:IsLoaded()
+local b = game.Players.LocalPlayer
+print('-- Still in Beta! --' .. _G.Version)
 
 Addprefix = '/'
 local StartApiBot = {}
@@ -20,7 +24,10 @@ if AddWhitelist.Whitelist == true then
 	end
 end
 		
-
+function Rejoin()
+    game:GetService("TeleportService"):Teleport(game.PlaceId, b)	
+end
+			
 function Msg(b)
 	game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(tostring(b), "All")
 end
