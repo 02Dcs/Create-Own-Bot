@@ -4,13 +4,12 @@ Addprefix = '/'
 local StartApiBot = {}
 
 local function PredictUser(shortName, callback)
-	local callback = callback or function() end
 	shortName = string.lower(shortName)
 	for _,Player in pairs(game.Players:GetPlayers()) do
 		local playerName = string.lower(Player.Name)
 		if string.match(playerName, "^"..shortName) then
 		    print(Player);
-		   pcall(callback)
+		   pcall()
 		   return Player
 		end
 	end
