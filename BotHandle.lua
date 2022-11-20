@@ -3,17 +3,14 @@ repeat task.wait(.25) until game:IsLoaded()
 Addprefix = '/'
 local StartApiBot = {}
 
-gay
-function PredictUser(NameVariable)
-    local Table = game.Players:GetChildren()
-    for i,v in pairs (Table) do
-        if string.find(string.lower(v.Name), string.lower(NameVariable)) then
-            return v.Name
-        elseif string.find(string.lower(v.DisplayName), string.lower(NameVariable)) then
-	     gay = v.Name
-            return v.Name
-        end
-    end
+local function PredictUser(n)
+	n = string.lower(n)
+	for _,Player in pairs(game.Players:GetPlayers()) do
+		local playerName = string.lower(Player.Name)
+		if string.match(playerName, "^"..n then
+		return Player
+	     end
+	end
 end
 
 if syn then 
