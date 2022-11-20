@@ -43,4 +43,3 @@ if string.match(message,"^"..Addprefix..tostring(y)) then
 		end
 	end)
 end
-
