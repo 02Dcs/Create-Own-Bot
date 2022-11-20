@@ -3,6 +3,9 @@
 -- >> Handle 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/02Dcs/Create-Own-Bot/main/BotHandle.lua", true))()
 
+-- >> Rejoin game
+Rejoin();
+
 -- >> Costum prefix
 Addprefix = '/'
 
