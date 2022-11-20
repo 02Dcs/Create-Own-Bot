@@ -30,6 +30,7 @@ function PredictUser(NameVariable)
     for i,v in pairs (Table) do
         if string.find(string.lower(v.Name), string.lower(NameVariable)) then
 	print(v.Name)
+	end
     end
 end
 		
