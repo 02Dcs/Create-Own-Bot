@@ -3,6 +3,15 @@ repeat task.wait(.25) until game:IsLoaded()
 Addprefix = '/'
 local StartApiBot = {}
 
+local function PredictUser(partialName)
+    partialName = partialName:lower()
+    for _,player in ipairs(game:GetService("Players"):GetPlayers()) do
+        if string.find(player.Name:lower(),partialName) then
+            return player
+        end
+    end
+end
+
 if syn then 
 syn.queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/02Dcs/Create-Own-Bot/main/BotHandle.lua", true))()') 
 end
@@ -33,14 +42,6 @@ end
 if string.match(message,"^"..Addprefix..tostring(y)) then
 			pcall(callback) ;v = y
 			msg = message
-				function PredictUser(NameVariable)
-    local Table = game.Players:GetChildren()
-    for i,v in pairs (Table) do
-        if string.find(string.lower(v.Name), string.lower(NameVariable)) then
-            return v.Name
-	end
-    end
-end
 		end
 	end)
 end
