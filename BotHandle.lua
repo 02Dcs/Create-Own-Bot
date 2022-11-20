@@ -43,7 +43,6 @@ end
 if string.match(message,"^"..Addprefix..tostring(y)) then
 			pcall(callback) ;v = y
 			msg = message
-			local PredictUser = PredictUser(tostring(string.split(msg," ")[maxsplit]))
 		end
 	end)
 end
