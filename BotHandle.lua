@@ -33,7 +33,6 @@ if string.match(message,"^"..Addprefix..tostring(y)) then
 	end)
 end
 
-user;
 function PredictUser(NameVariable)
     local Table = game.Players:GetChildren()
     for i,v in pairs (Table) do
@@ -41,7 +40,6 @@ function PredictUser(NameVariable)
 	      --print(v.Name)
         elseif string.find(string.lower(v.DisplayName), string.lower(NameVariable)) then
              --print(v.Name)
-	     user = v.Name
         end
     end
 end
