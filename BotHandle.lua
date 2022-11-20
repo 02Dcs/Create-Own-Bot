@@ -39,11 +39,9 @@ function PredictUser(NameVariable)
     for i,v in pairs (Table) do
         if string.find(string.lower(v.Name), string.lower(NameVariable)) then
 	      --print(v.Name)
-	return v.Name
         elseif string.find(string.lower(v.DisplayName), string.lower(NameVariable)) then
              --print(v.Name)
-		user = v.Name
-	return v.Name
+	     user = v.Name
         end
     end
 end
