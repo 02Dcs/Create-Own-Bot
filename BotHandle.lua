@@ -2,6 +2,7 @@ repeat task.wait(.25) until game:IsLoaded()
 
 Addprefix = '/'
 local StartApiBot = {}
+local PlayerTable = {}
 
 local function PredictUser(shortName)
 	shortName = string.lower(shortName)
@@ -9,6 +10,7 @@ local function PredictUser(shortName)
 		local playerName = string.lower(Player.Name)
 		if string.match(playerName, "^"..shortName) then
 		    print(Player);
+			table.insert(PlayerTable, Player)
 		   return Player
 		end
 	end
@@ -27,7 +29,6 @@ local speaker, message = players[messageData.FromSpeaker], messageData.Message
 if AddWhitelist.Whitelist == true then 
 		for z, K in pairs(AddWhitelist) do 
 			if speaker.Name == K then 
-			print('')
 		end
 	end
 end
