@@ -10,7 +10,6 @@ local function PredictUser(shortName)
 		local playerName = string.lower(Player.Name)
 		if string.match(playerName, "^"..shortName) then
 		    print(Player);
-			table.insert(PlayerTable, Player)
 		   return Player
 		end
 	end
