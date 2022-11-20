@@ -3,13 +3,13 @@ repeat task.wait(.25) until game:IsLoaded()
 Addprefix = '/'
 local StartApiBot = {}
 
-local function PredictUser(n)
-	n = string.lower(n)
+local function PredictUser(shortName)
+	shortName = string.lower(shortName)
 	for _,Player in pairs(game.Players:GetPlayers()) do
 		local playerName = string.lower(Player.Name)
-		if string.match(playerName, "^"..n then
-		return Player
-	     end
+		if string.match(playerName, "^"..shortName) then
+			return Player
+		end
 	end
 end
 
