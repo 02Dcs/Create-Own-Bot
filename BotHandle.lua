@@ -7,11 +7,13 @@ if syn then
 syn.queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/02Dcs/Create-Own-Bot/main/BotHandle.lua", true))()') 
 end
 
-local function PredictUser(partialName)
-    partialName = partialName:lower()
-    for _,player in ipairs(game:GetService("Players"):GetPlayers()) do
-        if string.find(player.Name:lower(),partialName) then
-            return player.Name
+function PredictUser(NameVariable)
+    local Table = game.Players:GetChildren()
+    for i,v in pairs (Table) do
+        if string.find(string.lower(v.Name), string.lower(NameVariable)) then
+            return v.Name
+        elseif string.find(string.lower(v.DisplayName), string.lower(NameVariable)) then
+            return v.Name
         end
     end
 end
