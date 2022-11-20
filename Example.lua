@@ -1,7 +1,7 @@
 --- >> Create Bot << ---
 
 -- >> Handle 
-StartApiBot:Loadstring()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/02Dcs/Create-Own-Bot/main/BotHandle.lua", true))()
 
 -- >> Costum prefix
 Addprefix = '/'
