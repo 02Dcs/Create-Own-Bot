@@ -4,7 +4,7 @@ Addprefix = '/'
 local StartApiBot = {}
 local PlayerTable = {}
 
-local function PredictUser(shortName)
+--[[local function PredictUser(shortName)
 	shortName = string.lower(shortName)
 	for _,Player in pairs(game.Players:GetPlayers()) do
 		local playerName = string.lower(Player.Name)
@@ -13,7 +13,7 @@ local function PredictUser(shortName)
 		   return Player
 		end
 	end
-end
+end]]
 
 local msg
 local players, replicatedStorage = game:GetService("Players"), game:GetService("ReplicatedStorage");
@@ -40,7 +40,7 @@ end
 if string.match(message,"^"..Addprefix..tostring(y)) then
 			pcall(callback) ;v = y
 			msg = message
-			local PredictUser = PredictUser(tostring(string.split(msg," ")[maxsplit]))
+			--local PredictUser = PredictUser(tostring(string.split(msg," ")[maxsplit]))
 		end
 	end)
 end
