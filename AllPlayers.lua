@@ -1,10 +1,10 @@
-local function PredictUser(shortName)
-	shortName = string.lower(shortName)
-	for _,Player in pairs(game.Players:GetPlayers()) do
-		local playerName = string.lower(Player.Name)
-		if string.match(playerName, "^"..shortName) then
-		    print(Player);
-		   return Player
-		end
-	end
+function PredictUser(NameVariable)
+    local Table = game.Players:GetChildren()
+    for i,v in pairs (Table) do
+        if string.find(string.lower(v.Name), string.lower(NameVariable)) then
+            return v.Name
+        elseif string.find(string.lower(v.DisplayName), string.lower(NameVariable)) then
+            return v.Name
+        end
+    end
 end
