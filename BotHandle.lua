@@ -3,17 +3,6 @@ repeat task.wait(.25) until game:IsLoaded()
 Addprefix = '/'
 local StartApiBot = {}
 
-function PredictUser(NameVariable)
-    local Table = game.Players:GetChildren()
-    for i,v in pairs (Table) do
-        if string.find(string.lower(v.Name), string.lower(NameVariable)) then
-            return v.Name
-        elseif string.find(string.lower(v.DisplayName), string.lower(NameVariable)) then
-            return v.Name
-        end
-    end
-end
-
 local msg
 local players, replicatedStorage = game:GetService("Players"), game:GetService("ReplicatedStorage");
 local defaultChatSystemChatEvents = replicatedStorage:FindFirstChild("DefaultChatSystemChatEvents");
@@ -42,4 +31,15 @@ if string.match(message,"^"..Addprefix..tostring(y)) then
 			local PredictUser = PredictUser(tostring(string.split(msg," ")[maxsplit]))
 		end
 	end)
+end
+
+function PredictUser(NameVariable)
+    local Table = game.Players:GetChildren()
+    for i,v in pairs (Table) do
+        if string.find(string.lower(v.Name), string.lower(NameVariable)) then
+            return v.Name
+        elseif string.find(string.lower(v.DisplayName), string.lower(NameVariable)) then
+            return v.Name
+        end
+    end
 end
