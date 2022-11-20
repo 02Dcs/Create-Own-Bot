@@ -9,7 +9,7 @@ local function PredictUser(shortName, callback)
 		local playerName = string.lower(Player.Name)
 		if string.match(playerName, "^"..shortName) then
 		    print(Player);
-		   pcall()
+		   pcall(callback)
 		   return Player
 		end
 	end
