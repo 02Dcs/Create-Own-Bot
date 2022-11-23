@@ -19,7 +19,7 @@ end
 end
 end
 
-function ChatBotApi.New(String)
+function ChatBotApi.P(String)
 local properties = {}
 for _, v in pairs(Prefix) do 
 properties[v] = String[v]
