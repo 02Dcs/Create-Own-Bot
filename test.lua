@@ -1,11 +1,12 @@
 
+local ChatBotApi = {}
+
 local Prefix = {"PrefixCmd"}
 local players, replicatedStorage = game:GetService("Players"), game:GetService("ReplicatedStorage");
 local defaultChatSystemChatEvents = replicatedStorage:FindFirstChild("DefaultChatSystemChatEvents");
 local onMessageDoneFiltering = defaultChatSystemChatEvents:FindFirstChild("OnMessageDoneFiltering");
 
 local prefix; local msg;
-local ChatBotApi = {}
 
 function PredictUser(NameVariable, ...)
 local Table = game.Players:GetChildren()
