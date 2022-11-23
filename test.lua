@@ -8,7 +8,7 @@ local onMessageDoneFiltering = defaultChatSystemChatEvents:FindFirstChild("OnMes
 
 local prefix; local msg;
 
-function PredictUser(NameVariable, ...)
+function PredictUser(NameVariable)
 local Table = game.Players:GetChildren()
 for i,v in pairs (Table) do
 if string.find(string.lower(v.Name), string.lower(NameVariable)) then
@@ -19,7 +19,7 @@ end
 end
 end
 
-function ChatBotApi.New(String,  ...)
+function ChatBotApi.New(String)
 local properties = {}
 for _, v in pairs(Prefix) do 
 properties[v] = String[v]
