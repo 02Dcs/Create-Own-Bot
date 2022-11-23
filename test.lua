@@ -1,6 +1,5 @@
 
 local ChatBotApi = {}
-
 local Prefix = {"PrefixCmd"}
 local players, replicatedStorage = game:GetService("Players"), game:GetService("ReplicatedStorage");
 local defaultChatSystemChatEvents = replicatedStorage:FindFirstChild("DefaultChatSystemChatEvents");
@@ -19,7 +18,7 @@ end
 end
 end
 
-function ChatBotApi.P(String)
+function New(String, ...)
 local properties = {}
 for _, v in pairs(Prefix) do 
 properties[v] = String[v]
