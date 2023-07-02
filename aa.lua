@@ -42,10 +42,11 @@ function add(b)
 	table.insert(settingsl.wht, b); table.sort(settingsl.wht)
 end
 
-local predict
-local smash
+
 
 function aibot:addcommand(c, enable, user, callback, ...)
+local predict
+local smash
 	for d, z in pairs(game.Players:GetChildren()) do
 		local callback = callback or function() end
 		local args = {...}
