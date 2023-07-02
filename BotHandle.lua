@@ -1,4 +1,4 @@
-repeat game:IsLoaded() until task.wait(1)
+repeat game:isLoaded() until task.wait(1)
 local rp = game:GetService('ReplicatedStorage')
 
 local function createmsg(v)
