@@ -1,7 +1,7 @@
 --- >> Create Bot << ---
 
 -- >> Handle 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/02Dcs/Create-Own-Bot/main/ai.lua", true))()
+local bot = loadstring(game:HttpGet("https://raw.githubusercontent.com/02Dcs/Create-Own-Bot/main/ai.lua", true))()
 
 --[[
 everyone/all = All Users!
@@ -16,19 +16,19 @@ notification(false);
 changeprefix('$');
 
 -- >> MsgChat
-addcommand("chat", true, 'everyone', function()
+bot:addcommand("chat", true, 'everyone', function()
 createmsg('test')
 end)
 
 -- >> addCommand
-addcommand("command", true, 'everyone', function()
+bot:addcommand("command", true, 'everyone', function()
 print('hello!')
 end)
 
 -- >> Whitelist
 add('User1'); add('User2');
 
-addcommand('whitelist', false, 'whitelist', function()
+bot:addcommand('whitelist', false, 'whitelist', function()
 createmsg('hi whitelist user!')
 end)
 
