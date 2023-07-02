@@ -63,7 +63,7 @@ function aibot:addcommand(c, enable, user, callback, ...)
 						end
 					else 
 						if user == 'everyone' or user == 'all' then
-							local xa = tostring(string.split(args," ")[maxsplit])
+							local xa = tostring(string.split(predict," ")[maxsplit])
 							addpredit = xa;
 							pcall(callback); 
 						end
