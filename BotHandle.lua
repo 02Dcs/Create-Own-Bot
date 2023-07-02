@@ -1,21 +1,5 @@
-local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
-local Notify = AkaliNotif.Notify;
-
-local rp = game:GetService('ReplicatedStorage')
-
 repeat game:IsLoaded() until task.wait(1)
-
-local function notification(e)	
-	if e then
-		Notify({
-			Description = "Ai-Bot Control";
-			Title = "V1.2";
-			Duration = 5;
-		});
-	else 
-		return nil;
-	end
-end
+local rp = game:GetService('ReplicatedStorage')
 
 local function createmsg(v)
 	pcall(function()
