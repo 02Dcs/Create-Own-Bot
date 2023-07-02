@@ -1,48 +1,93 @@
-_G.Version = 1.1
+local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
+local Notify = AkaliNotif.Notify;
 
-repeat task.wait(.25) until game:IsLoaded()
-local b = game.Players.LocalPlayer
-print('Still in Beta! V' .. _G.Version)
+local rp = game:GetService('ReplicatedStorage')
 
-Addprefix = '/'
-local StartApiBot = {}
+repeat game:IsLoaded() until task.wait(1)
 
-local msg
-local players, replicatedStorage = game:GetService("Players"), game:GetService("ReplicatedStorage");
-local defaultChatSystemChatEvents = replicatedStorage:FindFirstChild("DefaultChatSystemChatEvents");
-local onMessageDoneFiltering = defaultChatSystemChatEvents:FindFirstChild("OnMessageDoneFiltering");
-
-function addCommand(y, callback)
-local callback = callback or function() end
-onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
-local speaker, message = players[messageData.FromSpeaker], messageData.Message
-		
-if AddWhitelist.Whitelist == true then 
-		for z, K in pairs(AddWhitelist) do 
-			if speaker.Name == K then 
-		end
+local function notification(e)	
+	if e then
+		Notify({
+			Description = "Ai-Bot Control";
+			Title = "V1.2";
+			Duration = 5;
+		});
+	else 
+		return nil;
 	end
 end
-					
-function Msg(b)
-	game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(tostring(b), "All")
-end
-		
-if string.match(message,"^"..Addprefix..tostring(y)) then
-			pcall(callback) ;v = y
-			msg = message
-			local PredictUser = PredictUser(tostring(string.split(msg," ")[2]))
+
+local function createmsg(v)
+	pcall(function()
+		if not rp:FindFirstChild('DefaultChatSystemChatEvents') then
+			local g = game:GetService("TextChatService").ChatInputBarConfiguration.TargetTextChannel:SendAsync(v)
+			g:SetExtraData("BubbleChatEnabled", false)
+		else 
+			rp:FindFirstChild('DefaultChatSystemChatEvents').SayMessageRequest:FireServer(tostring(v), "All");
 		end
 	end)
 end
 
-function PredictUser(NameVariable)
-    local Table = game.Players:GetChildren()
-    for i,v in pairs (Table) do
-        if string.find(string.lower(v.Name), string.lower(NameVariable)) then
-	      return v.Name
-        elseif string.find(string.lower(v.DisplayName), string.lower(NameVariable)) then
-	     return v.Name
-        end
-    end
+local settingsl = {
+	prefix = '$',
+	wht = {},
+}; __index = settingsl;
+
+local function changeprefix(x)
+	return string.gsub(settingsl.prefix, settingsl.prefix, x);
+end
+
+local function add(b)
+	table.insert(settingsl.wht, b); table.sort(settingsl.wht)
+end
+
+local predict
+local function addcommand(c, enable, user, callback, ...)
+	for d, z in pairs(game.Players:GetChildren()) do
+		local callback = callback or function() end
+		local args = {...}
+		z.Chatted:connect(function(args)
+			if #args > 0 then
+				predict = args
+				if args:match(settingsl.prefix .. tostring(c)) then
+					if not enable then
+						--table.insert(wht, user);
+						if user == 'whitelist' or user == 'wht' then
+							if table.find(settingsl.wht, z.Name) then
+								pcall(callback)	
+							end
+						end
+					else 
+						if user == 'everyone' or user == 'all' then
+							local xa = tostring(string.split(args," ")[2])
+							pcall(callback); 
+
+						end
+					end
+				end
+			end
+		end)
+	end
+end
+
+local function b(x)
+	for x, j in pairs (game.Players:GetChildren()) do
+		if string.find(string.lower(x.Name), string.lower(x)) and string.find(string.lower(x.DisplayName) then
+			return x.Name
+		elseif string.find(string.lower(x.DisplayName), string.lower(x)) then
+			return x.Name
+		end
+	end
+end
+
+local function addpredict(ch, num)
+	if ch == 'variable' then
+		return tostring(string.split(predict," ")[num]);
+	elseif ch == 'player' then
+		return b(tostring(string.split(predict," ")[num]));
+	end
+end
+
+local function addplayer(num)
+	return tostring(string.split(predict," ")[num]);
 end
