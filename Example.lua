@@ -32,11 +32,4 @@ addcommand('whitelist', false, 'whitelist', function()
 createmsg('hi whitelist user!')
 end)
 
--- >> PredictUser
-addcommand("predict", true, 'everyone', function() -- Handle
-maxsplit = 2;
-local index = tostring(string.split(predict," ")[maxsplit]);
-createmsg('We found: ' .. index) -- addpredict('variable', 2))
-end)
-
 -- More Coming Soon!
