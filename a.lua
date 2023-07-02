@@ -53,6 +53,7 @@ function aibot:addcommand(c, enable, user, callback, ...)
 			if #args > 0 then
 				local xa = tostring(string.split(args, " ")[2])
 				predict = args
+				addpredit = xa;
 				if args:match(settingsl.prefix .. tostring(c)) then
 					if not enable then
 						--table.insert(wht, user);
@@ -63,7 +64,6 @@ function aibot:addcommand(c, enable, user, callback, ...)
 						end
 					else 
 						if user == 'everyone' or user == 'all' then
-							addpredit = xa;
 							pcall(callback); 
 						end
 					end
