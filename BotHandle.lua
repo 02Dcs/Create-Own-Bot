@@ -81,9 +81,9 @@ local function b(x)
 end
 
 local function addpredict(ch, num)
-	if ch == 'variable' then
+	if ch == 'variable' or ch == 'vr' then
 		return tostring(string.split(predict," ")[num]);
-	elseif ch == 'player' then
+	elseif ch == 'player' or ch == 'plr' then
 		return b(tostring(string.split(predict," ")[num]));
 	end
 end
