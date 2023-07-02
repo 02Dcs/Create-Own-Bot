@@ -44,7 +44,6 @@ end
 
 local predict
 local addpredit
-local maxsplit
 
 function aibot:addcommand(c, enable, user, callback, ...)
 	for d, z in pairs(game.Players:GetChildren()) do
@@ -52,6 +51,7 @@ function aibot:addcommand(c, enable, user, callback, ...)
 		local args = {...}
 		z.Chatted:connect(function(args)
 			if #args > 0 then
+				local xa = tostring(string.split(args, " ")[2])
 				predict = args
 				if args:match(settingsl.prefix .. tostring(c)) then
 					if not enable then
@@ -63,7 +63,6 @@ function aibot:addcommand(c, enable, user, callback, ...)
 						end
 					else 
 						if user == 'everyone' or user == 'all' then
-							local xa = tostring(string.split(predict," ")[maxsplit])
 							addpredit = xa;
 							pcall(callback); 
 						end
