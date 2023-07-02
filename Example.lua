@@ -34,7 +34,9 @@ end)
 
 -- >> PredictUser
 addcommand("predict", true, 'everyone', function() -- Handle
-createmsg('We found: ' .. addpredict('player', 2)) -- addpredict('variable', 2))
+maxsplit = 2;
+local index = tostring(string.split(predict," ")[maxsplit]);
+createmsg('We found: ' .. index) -- addpredict('variable', 2))
 end)
 
 -- More Coming Soon!
