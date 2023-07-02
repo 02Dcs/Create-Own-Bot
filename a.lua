@@ -34,7 +34,7 @@ local settingsl = {
 	wht = {},
 }; __index = settingsl;
 
-function aibot:changeprefix(x)
+function changeprefix(x)
 	string.gsub(settingsl.prefix, settingsl.prefix, x);
 end
 
@@ -43,13 +43,15 @@ function add(b)
 end
 
 local predict
-function addcommand(c, enable, user, callback, ...)
+local smash
+function aibot:addcommand(c, enable, user, callback, ...)
 	for d, z in pairs(game.Players:GetChildren()) do
 		local callback = callback or function() end
 		local args = {...}
 		z.Chatted:connect(function(args)
 			if #args > 0 then
 				addpredit = xa;
+				smash = tostring(string.split(predict," ")[2]);
 				if args:match(settingsl.prefix .. tostring(c)) then
 					if not enable then
 						--table.insert(wht, user);
