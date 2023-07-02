@@ -44,13 +44,14 @@ end
 
 local predict
 local smash
+
 function aibot:addcommand(c, enable, user, callback, ...)
 	for d, z in pairs(game.Players:GetChildren()) do
 		local callback = callback or function() end
 		local args = {...}
 		z.Chatted:connect(function(args)
 			if #args > 0 then
-				addpredit = xa;
+				predict = args
 				smash = tostring(string.split(predict," ")[2]);
 				if args:match(settingsl.prefix .. tostring(c)) then
 					if not enable then
