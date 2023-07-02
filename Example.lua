@@ -1,7 +1,7 @@
 --- >> Create Bot << ---
 
 -- >> Handle 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/02Dcs/Create-Own-Bot/main/api.lua", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/02Dcs/Create-Own-Bot/main/ai.lua", true))()
 
 --[[
 everyone/all = All Users!
