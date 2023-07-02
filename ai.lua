@@ -70,5 +70,4 @@ function aibot:addcommand(c, enable, user, callback, ...)
 		end)
 	end
 end
-
 return aibot
