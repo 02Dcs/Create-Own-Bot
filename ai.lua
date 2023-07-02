@@ -43,6 +43,9 @@ function add(b)
 end
 
 local predict
+local addpredit
+local maxsplit
+
 function aibot:addcommand(c, enable, user, callback, ...)
 	for d, z in pairs(game.Players:GetChildren()) do
 		local callback = callback or function() end
@@ -60,9 +63,9 @@ function aibot:addcommand(c, enable, user, callback, ...)
 						end
 					else 
 						if user == 'everyone' or user == 'all' then
-							local xa = tostring(string.split(args," ")[2])
+							local xa = tostring(string.split(args," ")[maxsplit])
+							addpredit = xa;
 							pcall(callback); 
-
 						end
 					end
 				end
