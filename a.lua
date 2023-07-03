@@ -1,4 +1,4 @@
-
+local ai = {}
 local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
 local Notify = AkaliNotif.Notify;
 
@@ -62,7 +62,6 @@ local function addpredict(ch, num)
 end
 
 local predict
-local ai = {}
 
 local function ai:addcommand(c, enable, user, callback, ...)
 	for d, z in pairs(game.Players:GetChildren()) do
@@ -93,8 +92,6 @@ local function ai:addcommand(c, enable, user, callback, ...)
 	end
 end
 
-
-return ai
 
 
 
