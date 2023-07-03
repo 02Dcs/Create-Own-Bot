@@ -94,6 +94,9 @@ local function ai:addcommand(c, enable, user, callback, ...)
 end
 
 
+return ai
+
+
 
 
 
