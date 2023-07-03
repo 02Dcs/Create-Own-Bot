@@ -43,7 +43,7 @@ local function add(b)
 	table.insert(settingsl.wht, b); table.sort(settingsl.wht)
 end
 
-function ai:create(f, callback)
+function create(f, callback)
 print(f);
 local callback = callback or function() end
 pcall(callback);
