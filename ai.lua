@@ -1,5 +1,7 @@
 function msg(x)
- print(x);
+for _,v in next, (x) do
+return print(v)
+end
 end
 
 return {
