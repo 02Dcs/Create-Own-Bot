@@ -50,7 +50,7 @@ pcall(callback);
 end
 
 local predict
-local function addcommand(c, enable, user, callback, ...)
+local function ai:addcommand(c, enable, user, callback, ...)
 	for d, z in pairs(game.Players:GetChildren()) do
 		local callback = callback or function() end
 		local args = {...}
@@ -94,6 +94,7 @@ local function addpredict(ch, num)
 	elseif ch == 'player' or ch == 'plr' then
 		return b(tostring(string.split(predict," ")[num]));
 	end
+    return ai
 end
 
 return ai
