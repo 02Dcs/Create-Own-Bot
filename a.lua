@@ -6,6 +6,8 @@ local rp = game:GetService('ReplicatedStorage')
 
 repeat game:IsLoaded() until task.wait(1)
 
+function ai:create(f)
+
 local function notification(e)	
 	if e then
 		Notify({
@@ -43,14 +45,9 @@ local function add(b)
 	table.insert(settingsl.wht, b); table.sort(settingsl.wht)
 end
 
-function create(f, callback)
-print(f);
-local callback = callback or function() end
-pcall(callback);
-end
-
+local shit = {}
 local predict
-local function ai:addcommand(c, enable, user, callback, ...)
+local function shit:addcommand(c, enable, user, callback, ...)
 	for d, z in pairs(game.Players:GetChildren()) do
 		local callback = callback or function() end
 		local args = {...}
@@ -94,7 +91,8 @@ local function addpredict(ch, num)
 	elseif ch == 'player' or ch == 'plr' then
 		return b(tostring(string.split(predict," ")[num]));
 	end
-    return ai
+   return shit
+end
 end
 
 return ai
