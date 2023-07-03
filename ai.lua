@@ -35,7 +35,8 @@ local settingsl = {
 }; __index = settingsl;
 
 local function changeprefix(x)
-	return string.gsub(settingsl.prefix, settingsl.prefix, x);
+	settingsl.prefix = x;
+	return
 end
 
 local function add(b)
@@ -92,7 +93,7 @@ end
 
 
 --[[notification(false);
-changeprefix('$');
+changeprefix('!');
 
 addcommand("predict", true, 'everyone', function() -- Handle
 	createmsg('We found: ' .. addpredict('plr', 2))
@@ -105,5 +106,4 @@ end)
 add('fdsdaseqwdfdaaf'); add('Toxicitiness');  -- fdsdaseqwdfdaaf
 addcommand('onlyowner', false, 'whitelist', function()
 	createmsg('hi whitelist user!')
-end)]]
-
+end)]
