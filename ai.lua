@@ -1,4 +1,3 @@
-local ai = {}
 local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
 local Notify = AkaliNotif.Notify;
 
@@ -43,27 +42,8 @@ local function add(b)
 	table.insert(settingsl.wht, b); table.sort(settingsl.wht)
 end
 
-local function b(x)
-    for i, j in pairs (game.Players:GetChildren()) do
-        if string.find(string.lower(j.Name), string.lower(x)) then
-            return j.Name
-        elseif string.find(string.lower(j.DisplayName), string.lower(x)) then
-            return j.Name
-        end
-    end
-end
-
-local function addpredict(ch, num)
-	if ch == 'variable' or ch == 'vr' then
-		return tostring(string.split(predict," ")[num]);
-	elseif ch == 'player' or ch == 'plr' then
-		return b(tostring(string.split(predict," ")[num]));
-	end
-end
-
 local predict
-
-local function ai:addcommand(c, enable, user, callback, ...)
+local function addcommand(c, enable, user, callback, ...)
 	for d, z in pairs(game.Players:GetChildren()) do
 		local callback = callback or function() end
 		local args = {...}
@@ -89,11 +69,41 @@ local function ai:addcommand(c, enable, user, callback, ...)
 			end
 		end)
 	end
-	  return ai
+end
+
+local function b(x)
+    for i, j in pairs (game.Players:GetChildren()) do
+        if string.find(string.lower(j.Name), string.lower(x)) then
+            return j.Name
+        elseif string.find(string.lower(j.DisplayName), string.lower(x)) then
+            return j.Name
+        end
+    end
+end
+
+local function addpredict(ch, num)
+	if ch == 'variable' or ch == 'vr' then
+		return tostring(string.split(predict," ")[num]);
+	elseif ch == 'player' or ch == 'plr' then
+		return b(tostring(string.split(predict," ")[num]));
+	end
 end
 
 
 
+--[[notification(false);
+changeprefix('$');
 
+addcommand("predict", true, 'everyone', function() -- Handle
+	createmsg('We found: ' .. addpredict('plr', 2))
+end)
 
+addcommand("test", true, 'everyone', function()
+	createmsg('test')
+end)
+
+add('fdsdaseqwdfdaaf'); add('Toxicitiness');  -- fdsdaseqwdfdaaf
+addcommand('onlyowner', false, 'whitelist', function()
+	createmsg('hi whitelist user!')
+end)]]
 
