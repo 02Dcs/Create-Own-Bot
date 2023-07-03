@@ -1,4 +1,4 @@
-local aibot = {}
+local ai = {}
 local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))();
 local Notify = AkaliNotif.Notify;
 
@@ -6,7 +6,7 @@ local rp = game:GetService('ReplicatedStorage')
 
 repeat game:IsLoaded() until task.wait(1)
 
-function notification(e)	
+local function notification(e)	
 	if e then
 		Notify({
 			Description = "Ai-Bot Control";
@@ -14,11 +14,11 @@ function notification(e)
 			Duration = 5;
 		});
 	else 
-		print('...')
+		return nil;
 	end
 end
 
-function createmsg(v)
+local function createmsg(v)
 	pcall(function()
 		if not rp:FindFirstChild('DefaultChatSystemChatEvents') then
 			local g = game:GetService("TextChatService").ChatInputBarConfiguration.TargetTextChannel:SendAsync(v)
@@ -29,30 +29,34 @@ function createmsg(v)
 	end)
 end
 
+--createmsg('bypass module because of new chat!')
 local settingsl = {
 	prefix = '$',
 	wht = {},
 }; __index = settingsl;
 
-function changeprefix(x)
-	string.gsub(settingsl.prefix, settingsl.prefix, x);
+local function changeprefix(x)
+	return string.gsub(settingsl.prefix, settingsl.prefix, x);
 end
 
-function add(b)
+local function add(b)
 	table.insert(settingsl.wht, b); table.sort(settingsl.wht)
 end
 
-
+function ai:create(f, callback)
+print(f);
+local callback = callback or function() end
+pcall(callback);
+end
 
 local predict
-local smash
-
-function aibot:addcommand(c, enable, user, callback, ...)
+local function addcommand(c, enable, user, callback, ...)
 	for d, z in pairs(game.Players:GetChildren()) do
 		local callback = callback or function() end
 		local args = {...}
 		z.Chatted:connect(function(args)
 			if #args > 0 then
+				predict = args
 				if args:match(settingsl.prefix .. tostring(c)) then
 					if not enable then
 						--table.insert(wht, user);
@@ -63,7 +67,9 @@ function aibot:addcommand(c, enable, user, callback, ...)
 						end
 					else 
 						if user == 'everyone' or user == 'all' then
+							local xa = tostring(string.split(args," ")[2])
 							pcall(callback); 
+
 						end
 					end
 				end
@@ -72,4 +78,22 @@ function aibot:addcommand(c, enable, user, callback, ...)
 	end
 end
 
-return aibot
+local function b(x)
+    for i, j in pairs (game.Players:GetChildren()) do
+        if string.find(string.lower(j.Name), string.lower(x)) then
+            return j.Name
+        elseif string.find(string.lower(j.DisplayName), string.lower(x)) then
+            return j.Name
+       end
+    end
+end
+
+local function addpredict(ch, num)
+	if ch == 'variable' or ch == 'vr' then
+		return tostring(string.split(predict," ")[num]);
+	elseif ch == 'player' or ch == 'plr' then
+		return b(tostring(string.split(predict," ")[num]));
+	end
+end
+
+return ai
