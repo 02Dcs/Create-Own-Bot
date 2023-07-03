@@ -85,11 +85,11 @@ local function ai:addcommand(c, enable, user, callback, ...)
 
 						end
 					end
-						    return ai
 				end
 			end
 		end)
 	end
+	  return ai
 end
 
 
