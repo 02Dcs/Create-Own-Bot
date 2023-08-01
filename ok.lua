@@ -1,13 +1,10 @@
 local function setupScript()
-    --local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))()
-    --local Notify = AkaliNotif.Notify
-
-    local rp = game:GetService('ReplicatedStorage')
-
-    repeat game:IsLoaded() until task.wait(1)
-
     local function notification(e)    
         if e then
+            -- Make sure AkaliNotif is loaded before using Notify
+            local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))()
+            local Notify = AkaliNotif.Notify
+
             Notify({
                 Description = "Ai-Bot Control",
                 Title = "V1.2",
@@ -17,6 +14,10 @@ local function setupScript()
             return nil
         end
     end
+
+    local rp = game:GetService('ReplicatedStorage')
+
+    repeat game:IsLoaded() until task.wait(1)
 
     local function createmsg(v)
         pcall(function()
@@ -65,7 +66,6 @@ local function setupScript()
                             if user == 'everyone' or user == 'all' then
                                 local xa = tostring(string.split(args, " ")[2])
                                 pcall(callback) 
-
                             end
                         end
                     end
@@ -92,10 +92,6 @@ local function setupScript()
         end
     end
 
-    return function()
-    local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))()
-    local Notify = AkaliNotif.Notify
-
     return {
         notification = notification,
         changeprefix = changeprefix,
@@ -104,7 +100,8 @@ local function setupScript()
         b = b,
         addpredict = addpredict,
     }
-    end
 end
 
 local scriptFunctions = setupScript()
+
+scriptFunctions.notification(true)
