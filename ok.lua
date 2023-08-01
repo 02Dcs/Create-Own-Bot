@@ -1,6 +1,6 @@
 local function setupScript()
-    local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))()
-    local Notify = AkaliNotif.Notify
+    --local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))()
+    --local Notify = AkaliNotif.Notify
 
     local rp = game:GetService('ReplicatedStorage')
 
@@ -92,6 +92,10 @@ local function setupScript()
         end
     end
 
+    return function()
+    local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/Dynissimo/main/Scripts/AkaliNotif.lua"))()
+    local Notify = AkaliNotif.Notify
+
     return {
         notification = notification,
         changeprefix = changeprefix,
@@ -100,6 +104,7 @@ local function setupScript()
         b = b,
         addpredict = addpredict,
     }
+    end
 end
 
 local scriptFunctions = setupScript()
